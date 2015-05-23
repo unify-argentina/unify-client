@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html data-ng-app="movieStubApp">
+ 
+<head>
+    <title>Movie Stub - Book Movie Tickets Online</title>
+   
+
+    <script type="text/javascript" src="scripts/lib/jquery.min.js"></script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles/app.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>	
+
+<!-- 
+    <script type="text/javascript" src="scripts/lib/angular.min.js"></script>
+    <script type="text/javascript" src="scripts/lib/angular-resource.min.js"></script>
+    <script type="text/javascript" src="scripts/lib/angular-route.min.js"></script>
+
+
+   
+     <script type="text/javascript" src="lib/jquery/dist/jquery.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-resource/angular-resource.js"></script>
+    <script src="lib/angular-animate/angular-animate.js"></script>
+    <script src="lib/angular-sanitize/angular-sanitize.js"></script>
+    <script src="lib/angular-route/release/angular-route.js"></script>
+    <script src="lib/angular-ui-utils/ui-utils.js"></script>
+    <script src="lib/angular-ui-map/ui-map.js"></script>
+    <script src="lib/angular-touch/angular-touch.js"></script>
+    <script type="text/javascript"  src="lib/angular-route/angular-route.js"></script>
+
+
+-->
+
+    <script type="text/javascript"  src="lib/angular/angular.js"></script>
+    <script type="text/javascript"  src="lib/angular-resource/angular-resource.js"></script>
+    <script type="text/javascript" src="scripts/lib/angular-route.min.js"></script>
+
+
+    <script type="text/javascript" src="scripts/app.js"></script>
+    <script type="text/javascript" src="scripts/service/services.js"></script>
+    <script type="text/javascript" src="scripts/controller/controllers.js"></script>
+    <script type="text/javascript" src="scripts/router/routes.js"></script>
+
+</head>
+ 
+<body class="container" data-ng-controller="movieStubController">
+    <div data-ng-include src="headerSrc"></div>
+    <div id="container">
+        <div data-ng-view=""></div>
+    </div>
+</body>
+ 
+</html>
