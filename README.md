@@ -125,3 +125,5 @@ grunt run-linux
 
 grunt run-linux32
 ```
+
+En el proyecto de ejemplo no se puede correr desde node-webkit ya que esta el servicio que consumo solo se puede acceder desde node-webkit
