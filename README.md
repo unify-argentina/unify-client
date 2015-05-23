@@ -47,7 +47,7 @@ npm install -g bower
 ```
 #!bash
 
-git clone https://Sihke@bitbucket.org/unifyargentina/unifycliente.git
+git clone https://<username>@bitbucket.org/unifyargentina/unifycliente.git
 
 ```
 
