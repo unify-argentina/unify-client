@@ -39,14 +39,20 @@ npm install -g grunt-cli
 npm install -g bower
 ```
 
-### Configuración del proyecto ###
-## Descargar código de git ##
-Sobre la carpeta en la cual se va a instalar el workspace:
+## Configuración del proyecto ##
+### Descargar código de git ###
+* Sobre la carpeta en la cual se va a instalar el workspace:
+
+
+```
+#!bash
 
 git clone https://Sihke@bitbucket.org/unifyargentina/unifycliente.git
 
-## Instalación de dependencias ##
-Desde la ruta principal del proyecto correr:
+```
+
+### Instalación de dependencias ###
+* Desde la ruta principal del proyecto correr:
 
 ```
 #!bash
@@ -55,8 +61,8 @@ npm install && bower install
 ```
 
 
-## Instalación de compass (Para compilar Sass) - Requiere ruby ##
-## Instalación de RVM (Ruby Version Manager) ##
+### Instalación de compass (Para compilar Sass) - Requiere ruby ###
+### Instalación de RVM (Ruby Version Manager) ###
 
 ```
 #!bash
@@ -64,7 +70,7 @@ npm install && bower install
 curl -sSL https://get.rvm.io | bash -s stable
 ```
 
-## Instalación de ruby ##
+### Instalación de ruby ###
 
 
 ```
@@ -83,7 +89,7 @@ source $HOME/.rvm/scripts/rvm
 rvm install ruby
 ```
 
-## Instalación de compass ##
+### Instalación de compass ###
 
 
 ```
