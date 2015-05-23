@@ -39,32 +39,60 @@ npm install -g grunt-cli
 npm install -g bower
 ```
 
-Configuración del proyecto ionicEdit
-Descargar código de git
+### Configuración del proyecto ###
+## Descargar código de git ##
 Sobre la carpeta en la cual se va a instalar el workspace:
 
-git clone http://dev.graion.com/git/isover01.mobile
-Edit
-Instalación de dependencias
+git clone https://Sihke@bitbucket.org/unifyargentina/unifycliente.git
+
+## Instalación de dependencias ##
 Desde la ruta principal del proyecto correr:
-npm install
-bower install
-Edit
-Instalación de compass (Para compilar Sass) - Requiere ruby
-Instalación de RVM (Ruby Version Manager)
+
+```
+#!bash
+
+npm install && bower install
+```
+
+
+## Instalación de compass (Para compilar Sass) - Requiere ruby ##
+## Instalación de RVM (Ruby Version Manager) ##
+
+```
+#!bash
+
 curl -sSL https://get.rvm.io | bash -s stable
-Instalación de ruby
+```
+
+## Instalación de ruby ##
+
+
+```
+#!bash
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 source $HOME/.rvm/scripts/rvm
+```
+
 (Reemplazar $HOME por la ruta de la carpeta home del usuario)
 
+
+```
+#!bash
+
 rvm install ruby
-Instalación de compass
+```
+
+## Instalación de compass ##
+
+
+```
+#!bash
 
 gem install compass
-Edit
-Ejecución de la aplicación
+```
+
+## Ejecución de la aplicación ##
 La aplicación puede ejecutarse de 2 formas: En un browser o en node-webkit.
 
 Para ejecutar la aplicación en un browser:
@@ -78,9 +106,16 @@ grunt serve
 
 Para ejecutar la aplicación en node-webkit:
 
-
 ```
 #!bash
 
 grunt run-linux
+```
+
+ó
+
+```
+#!bash
+
+grunt run-linux32
 ```
