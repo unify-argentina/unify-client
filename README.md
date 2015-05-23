@@ -38,3 +38,49 @@ nvm install 0.10
 npm install -g grunt-cli
 npm install -g bower
 ```
+
+Configuración del proyecto ionicEdit
+Descargar código de git
+Sobre la carpeta en la cual se va a instalar el workspace:
+
+git clone http://dev.graion.com/git/isover01.mobile
+Edit
+Instalación de dependencias
+Desde la ruta principal del proyecto correr:
+npm install
+bower install
+Edit
+Instalación de compass (Para compilar Sass) - Requiere ruby
+Instalación de RVM (Ruby Version Manager)
+curl -sSL https://get.rvm.io | bash -s stable
+Instalación de ruby
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+source $HOME/.rvm/scripts/rvm
+(Reemplazar $HOME por la ruta de la carpeta home del usuario)
+
+rvm install ruby
+Instalación de compass
+
+gem install compass
+Edit
+Ejecución de la aplicación
+La aplicación puede ejecutarse de 2 formas: En un browser o en node-webkit.
+
+Para ejecutar la aplicación en un browser:
+
+
+```
+#!bash
+
+grunt serve
+```
+
+Para ejecutar la aplicación en node-webkit:
+
+
+```
+#!bash
+
+grunt run-linux
+```
