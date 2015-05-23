@@ -10,7 +10,7 @@
 "curl https://raw.githubusercontent.com/creationix/nvm/v0.18.0/install.sh | bash"
 ```
 
-* Agregar la siguiente linea al ~/.bashrc
+* Agregar las siguientes linea al ~/.bashrc
 
 ```
 #!bash
@@ -73,10 +73,12 @@ curl -sSL https://get.rvm.io | bash -s stable
 ### Instalación de ruby ###
 
 
+* Agregar las siguientes linea al ~/.bashrc
+
 ```
 #!bash
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/.rvm/bin" 
 source $HOME/.rvm/scripts/rvm
 ```
 
