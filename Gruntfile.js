@@ -25,6 +25,7 @@ module.exports = function (grunt) {
 
   var config = {
     app: 'app',
+    temp: 'temp',
     dist: 'dist',
     distMac32: 'dist/macOS',
     distMac64: 'dist/macOS',
@@ -152,13 +153,26 @@ module.exports = function (grunt) {
 
     // Empties folders to start fresh
     clean: {
-      dist: {
+      temp: {
         files: [{
           dot: true,
           src: [
-            '.tmp',
-            '<%= yeoman.dist %>/{,*/}*',
-            '!<%= yeoman.dist %>/.git{,*/}*'
+            '<%= config.temp %>'
+          ]
+        }]
+      },
+      postTemp: {
+        files: [{
+          dot: true,
+          src: [
+            '<%= yeoman.app %>/styles',
+            '<%= config.temp %>/styles/{,*/}*.{css, css.map}',
+            '<%= config.temp %>/styles/*',
+            '!<%= config.temp %>/styles/main.css',
+            '<%= config.temp %>/sass',
+            '<%= config.temp %>/scripts/*',            
+            '!<%= config.temp %>/scripts/app.js',
+            '<%= config.tmp %>/*'
           ]
         }]
       },
@@ -167,6 +181,7 @@ module.exports = function (grunt) {
           dot: true,
           src: [
             '<%= config.distMac32 %>/*',
+            '<%= yeoman.app %>/styles/{,*/}*.{css,css.map}',
             '<%= config.tmp %>/*'
           ]
         }]
@@ -176,6 +191,7 @@ module.exports = function (grunt) {
           dot: true,
           src: [
             '<%= config.distMac64 %>/*',
+            '<%= yeoman.app %>/styles/{,*/}*.{css,css.map}',
             '<%= config.tmp %>/*'
           ]
         }]
@@ -185,7 +201,17 @@ module.exports = function (grunt) {
           dot: true,
           src: [
             '<%= config.distLinux64 %>/*',
-            '<%= config.tmp %>/*'
+            '<%= yeoman.app %>/{,*/}*.{css,css.map}',
+            '<%= config.temp %>/*'
+          ]
+        }]
+      },
+      postDist: {
+        files: [{
+          dot: true,
+          src: [
+            '<%= yeoman.app %>/{,*/}*.{css, css.map}',
+            '<%= config.temp %>'
           ]
         }]
       },
@@ -194,6 +220,7 @@ module.exports = function (grunt) {
           dot: true,
           src: [
             '<%= config.distLinux32 %>/*',
+            '<%= yeoman.app %>/{,*/}*.{css,css.map}',
             '<%= config.tmp %>/*'
           ]
         }]
@@ -203,11 +230,20 @@ module.exports = function (grunt) {
           dot: true,
           src: [
             '<%= config.distWin %>/*',
+            '<%= yeoman.app %>/{,*/}*.{css,css.map}',
             '<%= config.tmp %>/*'
           ]
         }]
       },
-      server: '.tmp'
+      server: {
+        files: [{
+          dot: true,
+          src: [
+            '.tmp',
+            '<%= yeoman.app %>/styles/{,*/}*.{css,css.map}'
+          ]
+        }]
+      }
     },
 
     // Add vendor prefixed styles
@@ -266,8 +302,8 @@ module.exports = function (grunt) {
 
     compass: {
       options: {
-        sassDir: '<%= yeoman.app %>/styles',
-        cssDir: '.tmp/styles',
+        sassDir: '<%= yeoman.app %>/sass',
+        cssDir: '<%= yeoman.app %>/styles',
         generatedImagesDir: '.tmp/images/generated',
         imagesDir: '<%= yeoman.app %>/images',
         javascriptsDir: '<%= yeoman.app %>/scripts',
@@ -310,11 +346,11 @@ module.exports = function (grunt) {
     useminPrepare: {
       html: '<%= yeoman.app %>/index.html',
       options: {
-        dest: '<%= yeoman.dist %>',
+        dest: '<%= config.temp %>/',
         flow: {
           html: {
             steps: {
-              js: ['concat', 'uglifyjs'],
+              js: ['concat'],
               css: ['cssmin']
             },
             post: {}
@@ -325,13 +361,13 @@ module.exports = function (grunt) {
 
     // Performs rewrites based on filerev and the useminPrepare configuration
     usemin: {
-      html: ['<%= yeoman.dist %>/{,*/}*.html'],
-      css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
+      html: ['<%= config.temp %>/{,*/}*.html'],
+      css: ['<%= config.temp %>/styles/{,*/}*.css'],
       options: {
         assetsDirs: [
-          '<%= yeoman.dist %>',
-          '<%= yeoman.dist %>/images',
-          '<%= yeoman.dist %>/styles'
+          '<%= config.temp %>/',
+          '<%= config.temp %>/images',
+          '<%= config.temp %>/styles'
         ]
       }
     },
@@ -340,27 +376,33 @@ module.exports = function (grunt) {
     // By default, your `index.html`'s <!-- Usemin block --> will take care of
     // minification. These next options are pre-configured if you do not wish
     // to use the Usemin blocks.
-    // cssmin: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/styles/main.css': [
-    //         '.tmp/styles/{,*/}*.css'
-    //       ]
-    //     }
-    //   }
-    // },
-    // uglify: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/scripts/scripts.js': [
-    //         '<%= yeoman.dist %>/scripts/scripts.js'
-    //       ]
-    //     }
-    //   }
-    // },
-    // concat: {
-    //   dist: {}
-    // },
+    cssmin: {
+      dist: {
+        files: {
+          '<%= config.temp %>/styles/main.css': [
+            '<%= config.temp %>/styles/{,*/}*.css'
+          ]
+        }
+      }
+    },
+    //uglify: {
+    //  distLinux64: {
+    //    files: {
+    //      '<%= config.distLinux64 %>/app.nw/scripts/scripts.js': [
+    //        '<%= config.distLinux64 %>/app.nw/scripts/{,*/}*.js'
+    //      ]
+    //    }
+    //  }
+    //},
+    concat: {
+      options: {
+        separator: ';',
+      },
+      dist: {
+        src: '<%= config.temp %>/scripts/{,*/}*.js',
+        dest: '<%= config.temp %>/scripts/app.js'
+      }
+    },
 
 
     exec: {
@@ -405,9 +447,9 @@ module.exports = function (grunt) {
         },
         files: [{
           expand: true,
-          cwd: '<%= yeoman.dist %>',
-          src: ['*.html', 'views/{,*/}*.html'],
-          dest: '<%= yeoman.dist %>'
+          cwd: '<%= config.temp %>',
+          src: ['*.html', '{,*/}*.html'],
+          dest: '<%= config.temp %>/'
         }]
       }
     },
@@ -434,6 +476,14 @@ module.exports = function (grunt) {
 
     // Copies remaining files to places other tasks can use
     copy: {
+      temp: {
+        files: [{
+          expand: true,
+          cwd: '<%= config.app %>',
+          dest: '<%= config.temp %>/',
+          src: '**'
+        }]
+      },
       dist: {
         files: [{
           expand: true,
@@ -466,10 +516,10 @@ module.exports = function (grunt) {
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
       },
-       appLinux: {
+      appLinux: {
         files: [{
           expand: true,
-          cwd: '<%= config.app %>',
+          cwd: '<%= config.temp %>',
           dest: '<%= config.distLinux64 %>/app.nw',
           src: '**'
         }]
@@ -477,7 +527,7 @@ module.exports = function (grunt) {
       appLinux32: {
         files: [{
           expand: true,
-          cwd: '<%= config.app %>',
+          cwd: '<%= config.temp %>',
           dest: '<%= config.distLinux32 %>/app.nw',
           src: '**'
         }]
@@ -485,7 +535,7 @@ module.exports = function (grunt) {
       appMacos32: {
         files: [{
           expand: true,
-          cwd: '<%= config.app %>',
+          cwd: '<%= config.temp %>',
           dest: '<%= config.distMac32 %>/node-webkit.app/Contents/Resources/app.nw',
           src: '**'
         }, {
@@ -502,7 +552,7 @@ module.exports = function (grunt) {
           src: '*.icns'
         }, {
           expand: true,
-          cwd: '<%= config.app %>/../node_modules/',
+          cwd: '<%= config.temp %>/../node_modules/',
           dest: '<%= config.distMac32 %>/node-webkit.app/Contents/Resources/app.nw/node_modules/',
           src: '**'
         }]
@@ -510,7 +560,7 @@ module.exports = function (grunt) {
       appMacos64: {
         files: [{
           expand: true,
-          cwd: '<%= config.app %>',
+          cwd: '<%= config.temp %>',
           dest: '<%= config.distMac64 %>/node-webkit.app/Contents/Resources/app.nw',
           src: '**'
         }, {
@@ -527,7 +577,7 @@ module.exports = function (grunt) {
           src: '*.icns'
         }, {
           expand: true,
-          cwd: '<%= config.app %>/../node_modules/',
+          cwd: '<%= config.temp %>/../node_modules/',
           dest: '<%= config.distMac64 %>/node-webkit.app/Contents/Resources/app.nw/node_modules/',
           src: '**'
         }]
@@ -564,7 +614,7 @@ module.exports = function (grunt) {
         },
         files: [{
           expand: true,
-          cwd: '<%= config.app %>',
+          cwd: '<%= config.temp %>',
           src: ['**']
         }]
       },
@@ -608,9 +658,10 @@ module.exports = function (grunt) {
         'compass'
       ],
       dist: [
-        'compass:dist',
+        'compass:dist'
+        /*,
         'imagemin',
-        'svgmin'
+        'svgmin'*/
       ]
     },
 
@@ -855,37 +906,67 @@ module.exports = function (grunt) {
     });
   });
 
-    //'runLinuxApp:Linux64'
+  //'runLinuxApp:Linux64'
   grunt.registerTask('run-linux', [
+      'clean:server',
+      'wiredep',
+      'concurrent:server',
+      'autoprefixer:server',
       'exec:runLinux'
   ]);
+
   grunt.registerTask('run-linux32', [
+      'clean:server',
+      'wiredep',
+      'concurrent:server',
+      'autoprefixer:server',
       'exec:runLinux32'
+  ]);
+
+  grunt.registerTask('prepareDist', [
+    'clean:temp',
+    'wiredep',
+    'useminPrepare',
+    'concurrent:dist',
+    'autoprefixer:dist',
+    'copy:temp',
+    'cssmin:dist',
+    'concat:dist',
+    'usemin',
+    'htmlmin:dist',
+    'clean:postTemp'
   ]);
 
   grunt.registerTask('dist-linux', [
     'clean:distLinux64',
+    'prepareDist',
     'copy:appLinux',
-    'createLinuxApp:Linux64'
+    'createLinuxApp:Linux64',
+    'clean:postDist'
   ]);
 
   grunt.registerTask('dist-linux32', [
     'clean:distLinux32',
+    'prepareDist',
     'copy:appLinux32',
-    'createLinuxApp:Linux32'
+    'createLinuxApp:Linux32',
+    'clean:postDist'
   ]);
 
   grunt.registerTask('dist-win', [
     'clean:distWin',
+    'prepareDist',
     'copy:copyWinToTmp',
     'compress:appToTmp',
     'rename:zipToApp',
     'createWindowsApp',
-    'compress:finalWindowsApp'
+    'compress:finalWindowsApp',
+    'clean:postDist'
   ]);
 
   grunt.registerTask('dist-mac', [
     'clean:distMac64',
+    'prepareDist',
     'createPlistFile',
     'copy:webkit64',
     'copy:appMacos64',
@@ -895,6 +976,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('dist-mac32', [
     'clean:distMac32',
+    'prepareDist',
     'createPlistFile',
     'copy:webkit32',
     'copy:appMacos32',

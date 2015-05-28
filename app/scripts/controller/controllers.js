@@ -33,11 +33,11 @@ movieStubApp.controller("movieStubController", function ($scope, movieStubFactor
  
 });
  
-movieStubApp.controller("movieDetailsController", function ($scope, $routeParams) {
-    $scope.getMovieById($routeParams.id);
+movieStubApp.controller("movieDetailsController", function ($scope, $stateParams) {
+    $scope.getMovieById($stateParams.id);
 });
-movieStubApp.controller("bookTicketsController", function ($scope, $http, $location, $routeParams) {
-    $scope.getMovieById($routeParams.id);
+movieStubApp.controller("bookTicketsController", function ($scope, $http, $location, $stateParams) {
+    $scope.getMovieById($stateParams.id);
     $scope.onlyNumbers = /^\d+$/;
     $scope.formData = {};
     $scope.formData.movie_id = $scope.currMovie.id;
