@@ -1,5 +1,5 @@
 
-var movieStubApp = angular.module('movieStubApp', ['ngResource', 'ui.router', 'config'])
+var movieStubApp = angular.module('movieStubApp', ['ngResource', 'ui.router', 'config', 'pascalprecht.translate'])
 .config(function ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
 
@@ -19,4 +19,20 @@ var movieStubApp = angular.module('movieStubApp', ['ngResource', 'ui.router', 'c
       url: '#/bookTickets/:id',
       templateUrl: 'views/bookTickets.html'
     });
- });
+ })
+.config(function($translateProvider) {
+  $translateProvider.translations('en', {
+    HEADLINE: 'Book Movie Tickets',
+    INTRO_TEXT: 'And it has i18n support!',
+    BUTTON_TEXT_EN: 'english',
+    BUTTON_TEXT_ES: 'spanish'
+  })
+  .translations('es', {
+    HEADLINE: 'Reserva entradas de peliculas',
+    INTRO_TEXT: 'y tiene soporte de i18n!',
+    BUTTON_TEXT_EN: 'Ingles',
+    BUTTON_TEXT_ES: 'Español'
+  });
+  $translateProvider.preferredLanguage('es');
+})
+;

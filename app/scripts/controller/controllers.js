@@ -1,4 +1,4 @@
-movieStubApp.controller("movieStubController", function ($scope, movieStubFactory, $location, ENV) {
+movieStubApp.controller("movieStubController", function ($scope, movieStubFactory, $location, $translate, ENV) {
     $scope.headerSrc = "views/header.html";
  
     $scope.movies = movieStubFactory.query();
@@ -34,7 +34,10 @@ movieStubApp.controller("movieStubController", function ($scope, movieStubFactor
     $scope.isActivePath = function (route) {
         return ($location.path()).indexOf(route) >= 0;
     }
- 
+
+    $scope.changeLanguage = function (langKey) {
+        $translate.use(langKey);
+    };
 });
  
 movieStubApp.controller("movieDetailsController", function ($scope, $stateParams) {

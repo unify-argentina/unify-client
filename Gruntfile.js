@@ -162,7 +162,7 @@ module.exports = function (grunt) {
         options: {
           dest: '<%= yeoman.app %>/scripts/config.js'
         },
-        constants: {
+        constants:{
           ENV: grunt.file.readJSON('app/scripts/conf/dev.json')
         }
       },
@@ -196,7 +196,8 @@ module.exports = function (grunt) {
             '!<%= config.temp %>/styles/main.css',
             '<%= config.temp %>/sass',
             '<%= config.temp %>/scripts/*',            
-            '!<%= config.temp %>/scripts/app.js',
+            '!<%= config.temp %>/scripts/app.js',      
+            '!<%= config.temp %>/scripts/i18n/',
             '<%= config.tmp %>/*'
           ]
         }]
