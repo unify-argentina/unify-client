@@ -150,6 +150,37 @@ module.exports = function (grunt) {
         src: ['test/spec/{,*/}*.js']
       }
     },
+    ngconstant: {
+      // Options for all targets
+      options: {
+        space: '  ',
+        wrap: '"use strict";\n\n {%= __ngModule %}',
+        name: 'config',
+      },
+      // Environment targets
+      dev: {
+        options: {
+          dest: '<%= yeoman.app %>/scripts/config.js'
+        },
+        constants: {
+          ENV: {
+            name: 'development',
+            varX: 'Mira que esto es cosa seria'
+          }
+        }
+      },
+      prod: {
+        options: {
+          dest: '<%= config.temp %>/scripts/config.js'
+        },
+        constants: {
+          ENV: {
+            name: 'production',
+            varX: 'lalala'
+          }
+        }
+      }
+    },
 
     // Empties folders to start fresh
     clean: {
@@ -240,6 +271,7 @@ module.exports = function (grunt) {
           dot: true,
           src: [
             '.tmp',
+            '<%= yeoman.app %>/scripts/config.js',
             '<%= yeoman.app %>/styles/{,*/}*.{css,css.map}'
           ]
         }]
@@ -912,6 +944,7 @@ module.exports = function (grunt) {
   //'runLinuxApp:Linux64'
   grunt.registerTask('run-linux', [
       'clean:server',
+      'ngconstant:dev', 
       'wiredep',
       'concurrent:server',
       'autoprefixer:server',
@@ -920,6 +953,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('run-linux32', [
       'clean:server',
+      'ngconstant:dev', 
       'wiredep',
       'concurrent:server',
       'autoprefixer:server',
@@ -933,6 +967,7 @@ module.exports = function (grunt) {
     'concurrent:dist',
     'autoprefixer:dist',
     'copy:temp',
+    'ngconstant:prod', 
     'cssmin:dist',
     'concat:dist',
     'uglify:dist',

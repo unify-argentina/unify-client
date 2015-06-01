@@ -1,10 +1,14 @@
-movieStubApp.controller("movieStubController", function ($scope, movieStubFactory, $location) {
+movieStubApp.controller("movieStubController", function ($scope, movieStubFactory, $location, ENV) {
     $scope.headerSrc = "views/header.html";
  
     $scope.movies = movieStubFactory.query();
  
     $scope.currMovie = null;
  
+    $scope.name=ENV.name;
+
+    console.log(ENV.varX);
+    
     $scope.getMovieById = function (id) {
         var movies = $scope.movies;
         for (var i = 0; i < movies.length; i++) {

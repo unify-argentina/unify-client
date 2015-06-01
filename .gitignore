@@ -6,4 +6,6 @@ temp
 bower_components
 app/lib
 app/styles
+app/scripts/config.js
 buildTmp
+*.log

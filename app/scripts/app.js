@@ -1,5 +1,5 @@
 
-movieStubApp = angular.module('movieStubApp', ['ngResource', 'ui.router'])
+var movieStubApp = angular.module('movieStubApp', ['ngResource', 'ui.router', 'config'])
 .config(function ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
 
