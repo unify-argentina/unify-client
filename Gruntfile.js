@@ -163,10 +163,7 @@ module.exports = function (grunt) {
           dest: '<%= yeoman.app %>/scripts/config.js'
         },
         constants: {
-          ENV: {
-            name: 'development',
-            varX: 'Mira que esto es cosa seria'
-          }
+          ENV: grunt.file.readJSON('app/scripts/conf/dev.json')
         }
       },
       prod: {
@@ -174,10 +171,7 @@ module.exports = function (grunt) {
           dest: '<%= config.temp %>/scripts/config.js'
         },
         constants: {
-          ENV: {
-            name: 'production',
-            varX: 'lalala'
-          }
+          ENV: grunt.file.readJSON('app/scripts/conf/prod.json')
         }
       }
     },
