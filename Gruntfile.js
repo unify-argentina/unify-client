@@ -385,15 +385,18 @@ module.exports = function (grunt) {
         }
       }
     },
-    //uglify: {
-    //  distLinux64: {
-    //    files: {
-    //      '<%= config.distLinux64 %>/app.nw/scripts/scripts.js': [
-    //        '<%= config.distLinux64 %>/app.nw/scripts/{,*/}*.js'
-    //      ]
-    //    }
-    //  }
-    //},
+    uglify: {
+          options: {
+              mangle: false
+          },
+        dist: {
+          files: {
+            '<%= config.temp %>/scripts/app.js': [
+              '<%= config.temp %>/scripts/{,*/}*.js'
+            ]
+          }
+        }
+    },
     concat: {
       options: {
         separator: ';',
@@ -932,6 +935,7 @@ module.exports = function (grunt) {
     'copy:temp',
     'cssmin:dist',
     'concat:dist',
+    'uglify:dist',
     'usemin',
     'htmlmin:dist',
     'clean:postTemp'
