@@ -1,4 +1,4 @@
 {
 	"name": "development",
-	"varX": "Mira que esto es cosa seria"
+	"apiEndPoint": "http://localhost:8080"
 }

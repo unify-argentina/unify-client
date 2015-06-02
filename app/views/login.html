@@ -14,24 +14,30 @@
 		          <div class="row">
 		            <div class="col-md-12">
 		            	<h4 class="text-center">
-							<label>Iniciar Sesión</label>
+							<label>{{'logon_login' | translate}}</label>
 		            	</h4>        
 		                <div class="form-group">
-		                  	<input class="form-control" id="email" type='text' tabindex="1" placeholder="Ingresa tu email"/>
+		                  	<input class="form-control" id="email" type='text' tabindex="1" placeholder="{{'logon_mail' | translate}}"/>
 						</div>
 		                
 		                <div class="form-group">
-		                	<input id="pass" type='password' tabindex="2" class="form-control" placeholder="Ingresa tu contraseña"/>
+		                	<input id="pass" type='password' tabindex="2" class="form-control" placeholder="{{'logon_pass' | translate}}"/>
 		                </div>
 		                <div>
-						<a class="btn btn-primary btn-block">Ingresar</a>
+							<a class="btn btn-primary btn-block">{{'logon_ingresar' | translate}}</a>
 		                </div>
 		                <section class="sign-in-up-links text-center">
-		 	    			<a href='#'>Olvide mi password</a> 
+		 	    			<a href='#'>{{'logon_pass_forgot' | translate}}</a> 
 			                  <span class="sep">&ndash;</span> 
-			                  <a href="#">Registrarme</a>
+			                  <a href="#">{{'logon_singUp' | translate}}</a>
 		                  </p>
 		                </section>
+		                <div class="text-center">
+		                    <a  class="btn btn-primary"><span class="fa fa-facebook"></span> {{'logon_facebook' | translate}}</a>
+		                    <a class="btn btn-info"><span class="fa fa-twitter"></span> {{'logon_twitter' | translate}}</a>
+		                    <a  class="btn btn-primary"><i class="fa fa-instagram"></i></span> {{'logon_instagram' | translate}}</a>
+		                    <a  class="btn btn-danger"><i class="fa fa-google"></i></span> {{'logon_google' | translate}}</a>
+		                </div>
 		            </div>
 		          </div>
 				</form>
@@ -40,61 +46,3 @@
 		 </section>
 	</div>	
 </div>
-<!--
-<div class="container">
-	<div class="sign-in-up" id="to-top">
-	
-	    <section class="sign-in-up-section">
-	      <div class="container">
-	        <div class="row">
-	          <div class="col-md-12">
-	            <figure class="text-center">
-	                <img class="img-logo" src="/resources/images/home/logo.png" alt="">
-	            </figure>
-	          </div>
-	        </div>
-	
-	        <section class="sign-in-up-content">
-		        <form name="f" action="<c:url value='${formAction}'/>" method="POST" class="sign-in-up-form">
-		          <div class="row">
-		            <div class="col-md-12">
-		              <h4 class="text-center">
-						<c:if test="${not fromMail}">
-							<spring:message code="login.boxTitle.first"/>
-						</c:if>
-						<spring:message code="login.boxTitle.second"/>
-		              </h4>        
-		                <div class="form-group">
-		                  	<input class="form-control" id="email" type='text' name='j_username'value='<c:if test="${not empty param.login_error}">
-							<c:out escapeXml="false" value="${SPRING_SECURITY_LAST_USERNAME}"/></c:if>' tabindex="1" placeholder="<spring:message code="compania.email" />"/>
-						</div>
-		                
-		                <div class="form-group">
-		                  <input id="pass" type='password' name='j_password' tabindex="2" class="form-control" placeholder="<spring:message code="login.contrasena" /> "/>
-		                </div>
-		                <c:if test="${not empty message}">
-							<div class="wronglogin"><spring:message code="${message}"/>
-								<c:if test="${helpMsg != null }">
-									<a class="help" id="activarHelp"></a>
-								</c:if>
-							</div>
-						</c:if>
-		                <div>
-							<input type="submit" value="<spring:message code="login.ingresar" />" class="btn btn-primary btn-block"  tabindex="4">
-		                </div>
-		                <section class="sign-in-up-links text-center">
-		 	    			<input type="hidden" name="_spring_security_remember_me" value="true"/>
-		                  <p>
-			                  <a href='<spring:url value="passwordRecover" />'><spring:message code="login.forgotPassword"/> </a> 
-			                  <span class="sep">&ndash;</span> 
-			                  <a href="/usuario/registrar"><spring:message code="login.sinCuenta"/></a>
-		                  </p>
-		                </section>
-		            </div>
-		          </div>
-				</form>
-	        </section>
-	        </div>
-		 </section>
-	</div>	
-</div>		-->		
