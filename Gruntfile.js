@@ -197,7 +197,7 @@ module.exports = function (grunt) {
             '<%= config.temp %>/sass',
             '<%= config.temp %>/scripts/*',            
             '!<%= config.temp %>/scripts/app.js',      
-            '!<%= config.temp %>/scripts/i18n',
+            '!<%= config.temp %>/scripts/i18n/',
             '<%= config.tmp %>/*'
           ]
         }]

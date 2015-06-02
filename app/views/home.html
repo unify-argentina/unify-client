@@ -1,10 +1,8 @@
 <div ng-controller="movieStubController">
-    <div class="col-md-12">
-        <label>
-            <h2>{{'HEADLINE' | translate}} - {{name}} </h2>
-        </label>
-        <a class="btn btn-primary pull-right" ng-click="changeLanguage('es_AR')" translate="BUTTON_TEXT_ES"></a>
-        <a class="btn btn-primary pull-right" ng-click="changeLanguage('en_US')" translate="BUTTON_TEXT_EN"></a>
+    <h2>{{'HEADLINE' | translate}} - {{name}} </h2>
+    <div>
+      <button ng-click="changeLanguage('es')" translate="BUTTON_TEXT_ES"></button>
+      <button ng-click="changeLanguage('en')" translate="BUTTON_TEXT_EN"></button>
     </div>
     <input type="text" placeholder="Search Movies" class="form-control" data-ng-model="search">
      

@@ -20,32 +20,19 @@ var movieStubApp = angular.module('movieStubApp', ['ngResource', 'ui.router', 'c
       templateUrl: 'views/bookTickets.html'
     });
  })
-.config(function ($translateProvider) {
-
-  $translateProvider.useStaticFilesLoader({
-    prefix: 'scripts/i18n/locale-',
-    suffix: '.json'
+.config(function($translateProvider) {
+  $translateProvider.translations('en', {
+    HEADLINE: 'Book Movie Tickets',
+    INTRO_TEXT: 'And it has i18n support!',
+    BUTTON_TEXT_EN: 'english',
+    BUTTON_TEXT_ES: 'spanish'
+  })
+  .translations('es', {
+    HEADLINE: 'Reserva entradas de peliculas',
+    INTRO_TEXT: 'y tiene soporte de i18n!',
+    BUTTON_TEXT_EN: 'Ingles',
+    BUTTON_TEXT_ES: 'Español'
   });
-  $translateProvider.preferredLanguage('es_AR');
-});
-
-//.config(function($translateProvider) {
-//  $translateProvider.useStaticFilesLoader({
-//    'prefix': 'i18n/',
-//    'suffix': '.json'
-//  });
-////  $translateProvider.translations('en', {
-////    HEADLINE: 'Book Movie Tickets',
-////    INTRO_TEXT: 'And it has i18n support!',
-////    BUTTON_TEXT_EN: 'english',
-////    BUTTON_TEXT_ES: 'spanish'
-////  })
-////  .translations('es', {
-////    HEADLINE: 'Reserva entradas de peliculas',
-////    INTRO_TEXT: 'y tiene soporte de i18n!',
-////    BUTTON_TEXT_EN: 'Ingles',
-////    BUTTON_TEXT_ES: 'Español'
-////  });
-//  $translateProvider.preferredLanguage('es');
-//})
-//;
+  $translateProvider.preferredLanguage('es');
+})
+;
