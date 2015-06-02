@@ -1,24 +1,31 @@
 
-var movieStubApp = angular.module('movieStubApp', ['ngResource', 'ui.router', 'config', 'pascalprecht.translate'])
+'use strict';
+
+angular.module('unifyApp.controllers',['ui.router', 'config', 'pascalprecht.translate']);
+angular.module('unifyApp', ['unifyApp.controllers','ngResource', 'ui.router', 'config', 'pascalprecht.translate'])
 .config(function ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
 
-  $stateProvider.state('home', {
-      url: '/',
-      templateUrl: 'views/home.html'
-    });
-    $stateProvider.state('movie', {
-      url: '#/movie/:id',
-      templateUrl: 'views/movie.html'
-    });
-    $stateProvider.state('bookings', {
-      url: '#/bookings',
-      templateUrl: 'views/bookings.html'
-    });
-    $stateProvider.state('bookTickets', {
-      url: '#/bookTickets/:id',
-      templateUrl: 'views/bookTickets.html'
-    });
+  $stateProvider.state('loginSingUp', {
+    url: '/',
+    templateUrl: 'views/loginSingUp.html'
+  });
+  $stateProvider.state('login', {
+    url: '/login',
+    templateUrl: 'views/login.html'
+  });
+  $stateProvider.state('movie', {
+    url: '#/movie/:id',
+    templateUrl: 'views/movie.html'
+  });
+  $stateProvider.state('bookings', {
+    url: '#/bookings',
+    templateUrl: 'views/bookings.html'
+  });
+  $stateProvider.state('bookTickets', {
+    url: '#/bookTickets/:id',
+    templateUrl: 'views/bookTickets.html'
+  });
  })
 .config(function ($translateProvider) {
 

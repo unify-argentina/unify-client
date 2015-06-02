@@ -1,4 +1,4 @@
-movieStubApp.controller("movieStubController", function ($scope, movieStubFactory, $location, $translate, ENV) {
+/*movieStubApp.controller("movieStubController", function ($scope, movieStubFactory, $location, $translate, ENV) {
     $scope.headerSrc = "views/header.html";
  
     $scope.movies = movieStubFactory.query();
@@ -69,3 +69,4 @@ movieStubApp.controller("bookTicketsController", function ($scope, $http, $locat
 movieStubApp.controller("bookingDetailsController", function ($scope, movieStubBookingsFactory) {
     $scope.bookings = movieStubBookingsFactory.query();
 });
+*/

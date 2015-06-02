@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-ng-app="movieStubApp">
+<html data-ng-app="unifyApp">
  
 <head>
     <title>Movie Stub - Book Movie Tickets Online</title>
@@ -48,20 +48,19 @@
     
     <!-- build:css styles/main.css -->   
         <link rel="stylesheet" type="text/css" href="styles/app.css">
-        <link rel="stylesheet" type="text/css" href="styles/prueba.css">
+        <link rel="stylesheet" type="text/css" href="styles/login.css">
     <!-- endbuild -->
 
     <!-- build:js scripts/app.js -->
         <script type="text/javascript" src="scripts/app.js"></script>
         <script type="text/javascript" src="scripts/config.js"></script>
-        <script type="text/javascript" src="scripts/service/services.js"></script>
-        <script type="text/javascript" src="scripts/controller/controllers.js"></script>
+        <script type="text/javascript" src="scripts/controller/loginController.js"></script>
     <!-- endbuild -->
 
 </head>
  
-<body class="container" ng-controller="movieStubController">
-    <div data-ng-include src="headerSrc"></div>
+<body class="container" ng-controller="loginController">
+<!--    <div data-ng-include src="headerSrc"></div> -->
     <div id="container">
         <div ui-view></div>
     </div>
