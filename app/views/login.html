@@ -17,19 +17,19 @@
 							<label>{{'logon_login' | translate}}</label>
 		            	</h4>        
 		                <div class="form-group">
-		                  	<input class="form-control" id="email" type='text' tabindex="1" placeholder="{{'logon_mail' | translate}}"/>
+		                  	<input class="form-control" ng-model="user.email" id="email" type='text' tabindex="1" placeholder="{{'logon_mail_placeholder' | translate}}"/>
 						</div>
 		                
 		                <div class="form-group">
-		                	<input id="pass" type='password' tabindex="2" class="form-control" placeholder="{{'logon_pass' | translate}}"/>
+		                	<input id="pass" type='password' ng-model="user.password" tabindex="2" class="form-control" placeholder="{{'logon_pass_placeholder' | translate}}"/>
 		                </div>
 		                <div>
-							<a class="btn btn-primary btn-block">{{'logon_ingresar' | translate}}</a>
+							<a class="btn btn-primary btn-block" ng-click="prueba()">{{'logon_ingresar' | translate}}</a>
 		                </div>
 		                <section class="sign-in-up-links text-center">
 		 	    			<a href='#'>{{'logon_pass_forgot' | translate}}</a> 
 			                  <span class="sep">&ndash;</span> 
-			                  <a href="#">{{'logon_singUp' | translate}}</a>
+			                  <a ui-sref="signUp">{{'logon_signUp' | translate}}</a>
 		                  </p>
 		                </section>
 		                <div class="text-center">

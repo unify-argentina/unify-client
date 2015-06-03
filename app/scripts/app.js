@@ -6,17 +6,17 @@ angular.module('unifyApp', ['unifyApp.controllers','ngResource', 'ui.router', 'c
 .config(function ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
 
-  $stateProvider.state('loginSingUp', {
+  $stateProvider.state('loginSignUp', {
     url: '/',
-    templateUrl: 'views/loginSingUp.html'
+    templateUrl: 'views/loginSignUp.html'
   });
   $stateProvider.state('login', {
     url: '/login',
     templateUrl: 'views/login.html'
   });
-  $stateProvider.state('movie', {
-    url: '#/movie/:id',
-    templateUrl: 'views/movie.html'
+  $stateProvider.state('signUp', {
+    url: '/signUp',
+    templateUrl: 'views/signUp.html'
   });
   $stateProvider.state('bookings', {
     url: '#/bookings',
