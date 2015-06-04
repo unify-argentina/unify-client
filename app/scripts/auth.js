@@ -3,20 +3,13 @@
 angular.module('unifyApp').config(function($authProvider) {
 
     $authProvider.facebook({
-      url: 'http://localhost:8080/auth/facebook/callback',
-      clientId: '805638479520745'
-  
+      clientId: '624059410963642'
     });
 
-  $authProvider.twitter({
-    url: 'http://localhost:8080/auth/twitter'
-  });
+    $authProvider.google({
+      clientId: '631036554609-v5hm2amv4pvico3asfi97f54sc51ji4o.apps.googleusercontent.com'
+    });
 
-  $authProvider.google({
-    clientId: '79996335280-gc0hh1efoo859u1lqaqct2v3u1larsrj.apps.googleusercontent.com',
-    url: 'http://localhost:8080/auth/google'
-  });
-/*
     $authProvider.github({
       clientId: '0ba2600b1dbdb756688b'
     });
@@ -44,5 +37,5 @@ angular.module('unifyApp').config(function($authProvider) {
       clientId: 'MTCEJ3NGW2PNNB31WOSBFDSAD4MTHYVAZ1UKIULXZ2CVFC2K',
       authorizationEndpoint: 'https://foursquare.com/oauth2/authenticate',
     });
-*/
+
   });
