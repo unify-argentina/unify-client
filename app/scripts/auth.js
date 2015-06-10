@@ -3,11 +3,11 @@
 angular.module('unifyApp').config(function($authProvider) {
 
     $authProvider.facebook({
-      clientId: '624059410963642'
+      clientId: '805638479520745'
     });
 
     $authProvider.google({
-      clientId: '631036554609-v5hm2amv4pvico3asfi97f54sc51ji4o.apps.googleusercontent.com'
+      clientId: '79996335280-gc0hh1efoo859u1lqaqct2v3u1larsrj.apps.googleusercontent.com'
     });
 
     $authProvider.github({
@@ -38,4 +38,14 @@ angular.module('unifyApp').config(function($authProvider) {
       authorizationEndpoint: 'https://foursquare.com/oauth2/authenticate',
     });
 
+    $authProvider.oauth2({
+      name: 'instagram',
+      url: 'http://localhost:3000/auth/instagram',
+      redirectUri: 'http://localhost:9000',
+      clientId: '799d1f8ea0e44ac8b70e7f18fcacedd1',
+      requiredUrlParams: ['scope'],
+      scope: ['likes'],
+      scopeDelimiter: '+',
+      authorizationEndpoint: 'https://api.instagram.com/oauth/authorize'
+    });
   });

@@ -8,15 +8,6 @@ unifyApp.controller("loginController", function ($scope, $http, $auth, $location
     console.log("Usuario: "+$scope.user.name+" Email: "+$scope.user.email+" Pass: "+$scope.user.password);
   };
 
-  $scope.login = function () {
-    console.log("PROBANDO!");
-    $http.get('http://localhost:8080/auth/facebook').success(function (data) {
-      //$location.path("/bookings");
-      console.log(data);
-    });
-  };
-
-
   $scope.authenticate = function(provider) {
     $auth.authenticate(provider)
       .then(function() {
