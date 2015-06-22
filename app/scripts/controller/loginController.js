@@ -2,16 +2,21 @@
 
 var unifyApp = angular.module('unifyApp.controllers');
 
-unifyApp.controller("loginController", function ($scope, $http, $auth, $location, $translate, ENV) {
+unifyApp.controller("loginController", function ($scope, $http, $auth, $state, $translate, ENV) {
 
   $scope.prueba = function () {
-    console.log("Usuario: "+$scope.user.name+" Email: "+$scope.user.email+" Pass: "+$scope.user.password);
+    $http.get('http://localhost:9000/pedo')
+      .success(function (data) {
+          console.log(data);
+      });
   };
 
   $scope.authenticate = function(provider) {
     $auth.authenticate(provider)
-      .then(function() {
-         console.log('You have successfully logged in');
+      .then(function(response) {
+        localStorage.setItem('response', JSON.stringify(response));
+        console.log('You have successfully logged in: '+response.data); 
+        $state.go('dashboard');
       })
       .catch(function(response) {
         console.log(response.data ? response.data.message : response);

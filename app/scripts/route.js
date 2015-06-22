@@ -15,9 +15,9 @@ angular.module('unifyApp').config(function ($stateProvider, $urlRouterProvider) 
     url: '/signUp',
     templateUrl: 'views/signUp.html'
   });
-  $stateProvider.state('bookings', {
-    url: '#/bookings',
-    templateUrl: 'views/bookings.html'
+  $stateProvider.state('dashboard', {
+    url: '/dashboard',
+    templateUrl: 'views/dashboard.html'
   });
   $stateProvider.state('bookTickets', {
     url: '#/bookTickets/:id',
