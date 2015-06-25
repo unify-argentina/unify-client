@@ -1,0 +1,4 @@
+{
+	"name": "production",
+	"apiEndPoint": "api-unify.herokuapp.com"
+}

@@ -965,7 +965,6 @@ module.exports = function (grunt) {
     'copy:temp',
     'ngconstant:prod', 
     'cssmin:dist',
-    'concat:dist',
     'uglify:dist',
     'usemin',
     'htmlmin:dist',

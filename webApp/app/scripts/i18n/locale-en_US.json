@@ -1,0 +1,17 @@
+{
+    "logon_login": "Log In",
+    "logon_signUp": "Sign Up",
+    "logon_bienvenido": "Welcome",
+    "logon_ingresar": "Submit",
+    "logon_ya_registrado": "Already have an acount?",
+    "logon_name": "Name",
+    "logon_mail": "E-mail",
+    "logon_mail_placeholder": "Enter the mail with which you have registered",
+    "logon_pass": "Password",
+    "logon_pass_placeholder": "Enter your password Unify",
+    "logon_pass_forgot": "I forgot my password",
+    "logon_facebook": "Facebook",
+    "logon_twitter": "Twitter",
+    "logon_instagram": "Instagram",
+    "logon_google": "Google"
+}
