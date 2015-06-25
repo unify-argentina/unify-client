@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html data-ng-app="unifyApp">
+ 
+<head>
+    <title>Movie Stub - Book Movie Tickets Online</title>
+
+    <meta charset="utf-8">
+
+    <script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>	
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <script type="text/javascript"  src="lib/angular/angular.min.js"></script>
+    <script type="text/javascript"  src="lib/angular-resource/angular-resource.min.js"></script>
+    <script type="text/javascript"  src="lib/angular-translate/angular-translate.min.js"></script>
+    <script src="lib/angular-ui-map/ui-map.min.js"></script>
+    <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="lib/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+    <script src="lib/satellizer/satellizer.js"></script>
+    
+    <!-- build:css styles/main.css -->   
+        <link rel="stylesheet" type="text/css" href="styles/app.css">
+        <link rel="stylesheet" type="text/css" href="styles/login.css">
+    <!-- endbuild -->
+
+    <!-- build:js scripts/app.js -->
+        <script type="text/javascript" src="scripts/app.js"></script>
+        <script type="text/javascript" src="scripts/config.js"></script>
+        <script type="text/javascript" src="scripts/route.js"></script>
+        <script type="text/javascript" src="scripts/translate.js"></script>
+        <script type="text/javascript" src="scripts/auth.js"></script>
+        <script type="text/javascript" src="scripts/controller/loginController.js"></script>
+    <!-- endbuild -->
+
+</head>
+ 
+<body class="container" ng-controller="loginController">
+<!--    <div data-ng-include src="headerSrc"></div> -->
+    <div id="container">
+        <div ui-view></div>
+    </div>
+</body>
+ 
+</html>

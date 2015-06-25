@@ -1,0 +1,19 @@
+{
+  "name": "clienteUnify",
+  "main": "index.html",
+  //"node-main": "server.js",
+  "version": "0.0.1",
+  "single-instance": true,
+  "dependencies": {
+    "express": "^4.12.4"
+  },
+  "window": {
+    "title": "clienteUnify",
+    "width": 1000,
+    "height": 650,
+    "min_width": 650,
+    "min_height": 650,
+    "toolbar": true
+  },
+  "chromium-args": "--child-clean-exit"
+}
