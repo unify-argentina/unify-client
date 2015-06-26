@@ -61,10 +61,6 @@ module.exports = function (grunt) {
         files: ['test/spec/{,*/}*.js'],
         tasks: ['newer:jshint:test', 'karma']
       },
-      compass: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-        tasks: ['compass:server', 'autoprefixer']
-      },
       gruntfile: {
         files: ['Gruntfile.js']
       },
@@ -150,31 +146,7 @@ module.exports = function (grunt) {
         src: ['test/spec/{,*/}*.js']
       }
     },
-    ngconstant: {
-      // Options for all targets
-      options: {
-        space: '  ',
-        wrap: '"use strict";\n\n {%= __ngModule %}',
-        name: 'config',
-      },
-      // Environment targets
-      dev: {
-        options: {
-          dest: '<%= yeoman.app %>/scripts/config.js'
-        },
-        constants:{
-          ENV: grunt.file.readJSON('app/scripts/conf/dev.json')
-        }
-      },
-      prod: {
-        options: {
-          dest: '<%= config.temp %>/scripts/config.js'
-        },
-        constants: {
-          ENV: grunt.file.readJSON('app/scripts/conf/prod.json')
-        }
-      }
-    },
+    
 
     // Empties folders to start fresh
     clean: {
@@ -190,14 +162,6 @@ module.exports = function (grunt) {
         files: [{
           dot: true,
           src: [
-            '<%= yeoman.app %>/styles',
-            '<%= config.temp %>/styles/{,*/}*.{css, css.map}',
-            '<%= config.temp %>/styles/*',
-            '!<%= config.temp %>/styles/main.css',
-            '<%= config.temp %>/sass',
-            '<%= config.temp %>/scripts/*',            
-            '!<%= config.temp %>/scripts/app.js',      
-            '!<%= config.temp %>/scripts/i18n',
             '<%= config.tmp %>/*'
           ]
         }]
@@ -207,7 +171,6 @@ module.exports = function (grunt) {
           dot: true,
           src: [
             '<%= config.distMac32 %>/*',
-            '<%= yeoman.app %>/styles/{,*/}*.{css,css.map}',
             '<%= config.tmp %>/*'
           ]
         }]
@@ -217,7 +180,6 @@ module.exports = function (grunt) {
           dot: true,
           src: [
             '<%= config.distMac64 %>/*',
-            '<%= yeoman.app %>/styles/{,*/}*.{css,css.map}',
             '<%= config.tmp %>/*'
           ]
         }]
@@ -227,7 +189,6 @@ module.exports = function (grunt) {
           dot: true,
           src: [
             '<%= config.distLinux64 %>/*',
-            '<%= yeoman.app %>/{,*/}*.{css,css.map}',
             '<%= config.temp %>/*'
           ]
         }]
@@ -246,7 +207,6 @@ module.exports = function (grunt) {
           dot: true,
           src: [
             '<%= config.distLinux32 %>/*',
-            '<%= yeoman.app %>/{,*/}*.{css,css.map}',
             '<%= config.tmp %>/*'
           ]
         }]
@@ -256,7 +216,6 @@ module.exports = function (grunt) {
           dot: true,
           src: [
             '<%= config.distWin %>/*',
-            '<%= yeoman.app %>/{,*/}*.{css,css.map}',
             '<%= config.tmp %>/*'
           ]
         }]
@@ -266,8 +225,7 @@ module.exports = function (grunt) {
           dot: true,
           src: [
             '.tmp',
-            '<%= yeoman.app %>/scripts/config.js',
-            '<%= yeoman.app %>/styles/{,*/}*.{css,css.map}'
+            '<%= yeoman.app %>/scripts/config.js'
           ]
         }]
       }
@@ -324,34 +282,6 @@ module.exports = function (grunt) {
       sass: {
         src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
         ignorePath: /(\.\.\/){1,2}app\/lib\//
-      }
-    },
-
-    compass: {
-      options: {
-        sassDir: '<%= yeoman.app %>/sass',
-        cssDir: '<%= yeoman.app %>/styles',
-        generatedImagesDir: '.tmp/images/generated',
-        imagesDir: '<%= yeoman.app %>/images',
-        javascriptsDir: '<%= yeoman.app %>/scripts',
-        fontsDir: '<%= yeoman.app %>/styles/fonts',
-        importPath: 'app/lib',
-        httpImagesPath: '/images',
-        httpGeneratedImagesPath: '/images/generated',
-        httpFontsPath: '/styles/fonts',
-        relativeAssets: false,
-        assetCacheBuster: false,
-        raw: 'Sass::Script::Number.precision = 10\n'
-      },
-      dist: {
-        options: {
-          generatedImagesDir: '<%= yeoman.dist %>/images/generated'
-        }
-      },
-      server: {
-        options: {
-          sourcemap: true
-        }
       }
     },
 
@@ -682,16 +612,11 @@ module.exports = function (grunt) {
     // Run some tasks in parallel to speed up the build process
     concurrent: {
       server: [
-        'compass:server'
+        
       ],
       test: [
-        'compass'
       ],
       dist: [
-        'compass:dist'
-        /*,
-        'imagemin',
-        'svgmin'*/
       ]
     },
 
@@ -712,8 +637,6 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
-      'ngconstant:dev', 
-      'wiredep',
       'concurrent:server',
       'autoprefixer:server',
       'connect:livereload',
@@ -728,7 +651,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('test', [
     'clean:server',
-    'wiredep',
     'concurrent:test',
     'autoprefixer',
     'connect:test',
@@ -737,7 +659,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-    'wiredep',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
@@ -940,8 +861,6 @@ module.exports = function (grunt) {
   //'runLinuxApp:Linux64'
   grunt.registerTask('run-linux', [
       'clean:server',
-      'ngconstant:dev', 
-      'wiredep',
       'concurrent:server',
       'autoprefixer:server',
       'exec:runLinux'
@@ -949,8 +868,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('run-linux32', [
       'clean:server',
-      'ngconstant:dev', 
-      'wiredep',
       'concurrent:server',
       'autoprefixer:server',
       'exec:runLinux32'
@@ -958,12 +875,10 @@ module.exports = function (grunt) {
 
   grunt.registerTask('prepareDist', [
     'clean:temp',
-    'wiredep',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer:dist',
     'copy:temp',
-    'ngconstant:prod', 
     'cssmin:dist',
     'uglify:dist',
     'usemin',
