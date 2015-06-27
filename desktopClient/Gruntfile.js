@@ -371,7 +371,10 @@ module.exports = function (grunt) {
       },
       runLinux32: {
         cmd: 'resources/node-webkit/Linux32/nw app'
-      }
+      },
+      runWindows: {
+        cmd: 'resources\\node-webkit\\Windows\\nw.exe app'
+      },
     },
 
     imagemin: {
@@ -871,6 +874,13 @@ module.exports = function (grunt) {
       'concurrent:server',
       'autoprefixer:server',
       'exec:runLinux32'
+  ]);
+
+  grunt.registerTask('run-win', [
+      'clean:server',
+      'concurrent:server',
+      'autoprefixer:server',
+      'exec:runWindows'
   ]);
 
   grunt.registerTask('prepareDist', [
