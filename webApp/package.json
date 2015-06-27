@@ -11,7 +11,6 @@
     "grunt-wiredep": "^1.7.0",
     "grunt-concurrent": "~0.4.1",
     "grunt-contrib-clean": "~0.6.0",
-    "grunt-contrib-compass": "~0.6.0",
     "grunt-contrib-compress": "^0.10.0",
     "grunt-contrib-concat": "~0.5.0",
     "grunt-contrib-connect": "~0.5.0",
@@ -40,7 +39,8 @@
     "mkdirp": "~0.5.0",
     "ncp": "~0.6.0",
     "orchestrator": "~0.3.7",
-    "ripple-emulator": "~0.9.23"
+    "ripple-emulator": "~0.9.23",
+    "grunt-sass": "~1.0.0"
   },
   "engines": {
     "node": ">=0.10.0"

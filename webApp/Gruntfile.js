@@ -281,7 +281,16 @@ module.exports = function (grunt) {
         ignorePath: /(\.\.\/){1,2}app\/lib\//
       }
     },
-
+    sass: {
+        options: {
+            sourceMap: true
+        },
+        dist: {
+            files: {
+                '<%= yeoman.app %>/styles/main.css': '<%= yeoman.app %>/sass/main.scss'
+            }
+        }
+    },
     compass: {
       options: {
         sassDir: '<%= yeoman.app %>/sass',
@@ -509,7 +518,7 @@ module.exports = function (grunt) {
       'clean:server',
       'ngconstant:dev', 
       'wiredep',
-      'concurrent:server',
+      'sass:dist',
       'autoprefixer:server',
       'connect:livereload',
       'watch'
@@ -524,19 +533,22 @@ module.exports = function (grunt) {
   grunt.registerTask('test', [
     'clean:server',
     'wiredep',
-    'concurrent:test',
+    'sass:dist',
     'autoprefixer',
     'connect:test',
     'karma'
   ]);
 
+  grunt.registerTask('styles', [
+    'sass:dist'
+  ]);
 
   grunt.registerTask('build', [
     'clean:dist',
     'clean:temp',
     'wiredep',
     'useminPrepare',
-    'concurrent:dist',
+    'sass:dist',
     'autoprefixer:dist',
     'copy:temp',
     'ngconstant:prod', 
