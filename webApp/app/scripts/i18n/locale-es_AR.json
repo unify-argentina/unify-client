@@ -9,6 +9,8 @@
     "logon_mail_placeholder": "Ingresá el mail con el que te registraste",
     "logon_pass": "Contraseña",
     "logon_pass_placeholder": "Ingresá tu contraseña de Unify",
+    "logon_confirm_pass": "Confirma tu contraseña",
+    "logon_confirm_pass_placeholder": "Ingresá tu contraseña de Unify una vez más",
     "logon_pass_forgot": "Olvidé mi contraseña",
     "logon_facebook": "Facebook",
     "logon_twitter": "Twitter",

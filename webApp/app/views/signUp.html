@@ -1,4 +1,4 @@
-<div class="container" ng-controller="loginController">
+<div class="container" ng-controller="signUpController">
     <div class="sign-in-up" id="to-top">
         <section class="sign-in-up-section">
             <div class="container">
@@ -20,8 +20,11 @@
                                 <label>{{'logon_pass' | translate}}</label>
                                 <input type="password" class="form-control" name="password" ng-model="user.password">
                             </div>
-
-                            <a class="btn btn-warning btn-lg" ng-click="prueba()">{{'logon_ingresar' | translate}}</a>
+                            <div class="form-group">
+                                <label>{{'logon_confirm_pass' | translate}}</label>
+                                <input type="password" class="form-control" name="password" ng-model="user.confirmpassword">
+                            </div>
+                            <a class="btn btn-warning btn-lg" ng-click="signup()">{{'logon_ingresar' | translate}}</a>
                             <hr>
 
                              <p>{{'logon_ya_registrado' | translate}} <a ui-sref="login">{{'logon_login' | translate}}</a></p>
