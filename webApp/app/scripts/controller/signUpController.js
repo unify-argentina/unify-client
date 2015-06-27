@@ -11,23 +11,7 @@ unifyApp.controller("signUpController", function ($scope, $http, $auth, $state, 
         password: $scope.user.password,
         confirm_password: $scope.user.confirmpassword
       }).catch(function(response) {
-        if (typeof response.data.message === 'object') {
-          angular.forEach(response.data.message, function(message) {
-            $alert({
-              content: message[0],
-              animation: 'fadeZoomFadeDown',
-              type: 'material',
-              duration: 3
-            });
-          });
-        } else {
-          $alert({
-            content: response.data.message,
-            animation: 'fadeZoomFadeDown',
-            type: 'material',
-            duration: 3
-          });
-        }
+        console.log(response);
       });
     };
   });
