@@ -2,7 +2,8 @@
   "name": "unifyDestop",
   "version": "0.0.0",
   "dependencies": {
-    "bootstrap-sass-official": "^3.2.0"
+    "bootstrap-sass-official": "^3.2.0",
+    "jquery": "~1.9.1"
   },
   "appPath": "app",
   "moduleName": "angularJsApp"

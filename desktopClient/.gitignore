@@ -4,6 +4,6 @@ dist
 temp
 .sass-cache
 bower_components
-app/lib/bootstrap-sass-official
 buildTmp
 *.log
+app/lib
