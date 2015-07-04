@@ -42,29 +42,7 @@ git clone https://<username>@bitbucket.org/unifyargentina/unifycliente.git
 #!bash 
 npm install && bower install
 ```  
-### Instalación de compass (Para compilar Sass) - Requiere ruby ###
-### Instalación de RVM (Ruby Version Manager) ### 
-```
-#!bash 
-curl -sSL https://get.rvm.io | bash -s stable
-``` 
-### Instalación de ruby ###  
-* Agregar las siguientes linea al ~/.bashrc 
-```
-#!bash 
-export PATH="$PATH:$HOME/.rvm/bin" 
-source $HOME/.rvm/scripts/rvm
-``` 
-(Reemplazar $HOME por la ruta de la carpeta home del usuario)  
-```
-#!bash 
-rvm install ruby
-``` 
-### Instalación de compass ###  
-```
-#!bash 
-gem install compass
-``` 
+
 ## Ejecución de la aplicación ##
 La aplicación puede ejecutarse de 2 formas: En un browser o en node-webkit. 
 Para ejecutar la aplicación en un browser:  
