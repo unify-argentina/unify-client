@@ -20,7 +20,7 @@
     <script src="lib/angular-ui-map/ui-map.min.js"></script>
     <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="lib/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
-    <script src="lib/satellizer/satellizer.js"></script>
+    <script src="lib/satellizer/satellizer.min.js"></script>
     
     <link rel="stylesheet" type="text/css" href="styles/main.css">
     
@@ -30,15 +30,26 @@
         <script type="text/javascript" src="scripts/route.js"></script>
         <script type="text/javascript" src="scripts/translate.js"></script>
         <script type="text/javascript" src="scripts/auth.js"></script>
-        <script type="text/javascript" src="scripts/controller/loginController.js"></script>
-        <script type="text/javascript" src="scripts/controller/signUpController.js"></script>
+
+        <!-- Controllers -->
+        <script type="text/javascript" src="scripts/controller/login.controller.js"></script>
+        <script type="text/javascript" src="scripts/controller/main.controller.js"></script>
+        <script type="text/javascript" src="scripts/controller/signUp.controller.js"></script>
+        <script type="text/javascript" src="scripts/controller/profile.controller.js"></script>
+
+        <!-- Services -->
+        <script type="text/javascript" src="scripts/service/authentication.service.js"></script>
+        <script type="text/javascript" src="scripts/service/profile.service.js"></script>
+
+        <!-- Directives -->
+        <script type="text/javascript" src="scripts/directives/main-content.js"></script>
     <!-- endbuild -->
 
 </head>
  
-<body class="container" ng-controller="loginController">
+<body class="container" ng-controller="MainController">
 <!--    <div data-ng-include src="headerSrc"></div> -->
-    <div id="container">
+    <div>
         <div ui-view></div>
     </div>
 </body>

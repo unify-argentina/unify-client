@@ -1,0 +1,144 @@
+<div id="profile" class="container" ng-controller="ProfileController">
+	<div class="spinner" ng-if="!user">
+      <div class="rect1"></div>
+      <div class="rect2"></div>
+      <div class="rect3"></div>
+      <div class="rect4"></div>
+      <div class="rect5"></div>
+  	</div>
+	<div class="content col-md-12" ng-if="user">
+		<div class="col-md-12 well">
+
+			<div class="col-md-6">
+				{{'profile_name' | translate}} : 
+				{{user.name}}
+			</div>
+			<div class="col-md-6">
+				{{'profile_email' | translate}} : 
+				{{user.email}}
+			</div>
+		</div>
+		<div class="col-md-12 well">
+			<div class="col-md-6" ng-if="user.facebook">
+				<div class="panel panel-primary">
+			    	<div class="panel-heading">
+			        	<h3 class="panel-title">{{'profile_facebook' | translate}}</h3>
+			      	</div>
+			      	<div class="panel-body">
+				        <div class="col-md-12">
+							<img ng-src="{{user.facebook.picture}}" class="img-circle image-profile">
+						</div>
+						<div class="col-md-12 text-center">
+							<b>{{user.facebook.display_name}}</b><br>
+							{{user.facebook.email}}<br>
+							<a ng-click="unlink('facebook')" class="btn btn-primary"><span class="fa fa-facebook"></span> {{'profile_unlink' | translate}}</a>
+						</div>
+			      	</div>
+			    </div>				
+			</div>
+			<div class="col-md-6" ng-if="!user.facebook">
+				<div class="panel panel-primary">
+			    	<div class="panel-heading">
+			        	<h3 class="panel-title">{{'profile_facebook' | translate}}</h3>
+			      	</div>
+			      	<div class="panel-body">
+						<div class="col-md-12 text-center">
+							<h3>{{'profile_notlink' | translate}}</h3>
+							<a ng-click="authenticate('facebook')" class="btn btn-primary"><span class="fa fa-facebook"></span> {{'profile_link' | translate}}</a>
+						</div>
+			  		</div>	
+				</div>
+			</div>
+			<div class="col-md-6" ng-if="user.twitter">
+				<div class="panel panel-info">
+			    	<div class="panel-heading">
+			        	<h3 class="panel-title">{{'profile_twitter' | translate}}</h3>
+			      	</div>
+			      	<div class="panel-body">
+						<div class="col-md-12">
+							<img ng-src="{{user.twitter.picture}}" class="img-circle image-profile">
+						</div>
+						<div class="col-md-12 text-center">
+							<b>{{user.twitter.display_name}}</b><br><br>
+							{{user.twitter.email}}
+							<a ng-click="unlink('twitter')" class="btn btn-info"><span class="fa fa-twitter"></span> {{'profile_unlink' | translate}}</a>
+						</div>
+			  		  </div>	
+				</div>
+			</div>
+			<div class="col-md-6" ng-if="!user.twitter">
+				<div class="panel panel-info">
+			    	<div class="panel-heading">
+			        	<h3 class="panel-title">{{'profile_twitter' | translate}}</h3>
+			      	</div>
+			      	<div class="panel-body">
+						<div class="col-md-12 text-center">
+							<h3>{{'profile_notlink' | translate}}</h3>
+							<a ng-click="authenticate('twitter')" class="btn btn-info"><span class="fa fa-twitter"></span> {{'profile_link' | translate}}</a>
+						</div>
+			  		</div>	
+				</div>
+			</div>
+			<div class="col-md-6" ng-if="user.instagram">
+				<div class="panel panel-primary">
+			    	<div class="panel-heading">
+			        	<h3 class="panel-title">{{'profile_instagram' | translate}}</h3>
+			      	</div>
+			      	<div class="panel-body">
+						<div class="col-md-12">
+							<img ng-src="{{user.instagram.picture}}" class="img-circle image-profile">
+						</div>
+						<div class="col-md-12 text-center">
+							<b>{{user.instagram.display_name}}</b><br>
+							{{user.instagram.email}}<br>
+							<a  ng-click="unlink('instagram')" class="btn btn-primary"><i class="fa fa-instagram"></i></span> {{'profile_unlink' | translate}}</a>
+						</div>
+			  		</div>	
+				</div>
+			</div>
+			<div class="col-md-6" ng-if="!user.instagram">
+				<div class="panel panel-primary">
+			    	<div class="panel-heading">
+			        	<h3 class="panel-title">{{'profile_instagram' | translate}}</h3>
+			      	</div>
+			      	<div class="panel-body">
+						<div class="col-md-12 text-center">
+							<h3>{{'profile_notlink' | translate}}</h3>
+							<a  ng-click="authenticate('instagram')" class="btn btn-primary"><i class="fa fa-instagram"></i></span> {{'profile_link' | translate}}</a>
+						</div>
+			  		</div>	
+				</div>
+			</div>
+			<div class="col-md-6" ng-if="user.google">
+				<div class="panel panel-danger">
+			    	<div class="panel-heading">
+			        	<h3 class="panel-title">{{'profile_google' | translate}}</h3>
+			      	</div>
+			      	<div class="panel-body">
+						<div class="col-md-12">
+							<img ng-src="{{user.google.picture}}" class="img-circle image-profile">
+						</div>
+						<div class="col-md-12 text-center">
+							<b>{{user.google.display_name}}</b><br>
+							{{user.google.email}}<br>
+				            <a ng-click="unlink('google')" class="btn btn-danger"><i class="fa fa-google"></i></span> {{'profile_unlink' | translate}}</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6" ng-if="!user.google">
+				<div class="panel panel-danger">
+			    	<div class="panel-heading">
+			        	<h3 class="panel-title">{{'profile_google' | translate}}</h3>
+			      	</div>
+			      	<div class="panel-body">
+						<div class="col-md-12 text-center">
+							<h3>{{'profile_notlink' | translate}}</h3>
+							<a ng-click="authenticate('google')" class="btn btn-danger"><i class="fa fa-google"></i></span> {{'profile_link' | translate}}</a>
+						</div>
+			  		</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

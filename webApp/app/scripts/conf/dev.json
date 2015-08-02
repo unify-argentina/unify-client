@@ -1,4 +1,7 @@
 {
-	"name": "development",
-	"apiEndPoint": "http://localhost:8080"
+	"apiEndPoint"	:	"http://localhost:8080",
+	"name"			:	"development",
+    "storageUserId"	:	"unifyUserId",
+    "unlinkMethod"	:	"delete",
+	"unlinkUrl"		:	"/auth/"
 }

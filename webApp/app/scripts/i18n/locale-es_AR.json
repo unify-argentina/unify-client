@@ -15,5 +15,14 @@
     "logon_facebook": "Facebook",
     "logon_twitter": "Twitter",
     "logon_instagram": "Instagram",
-    "logon_google": "Google"
+    "logon_google": "Google",
+    "profile_name": "Nombre",
+    "profile_email": "E-mail",
+    "profile_link": "Agregar",
+    "profile_unlink": "Quitar",
+    "profile_notlink" : "Todavía no tenes asociada esta cuenta. ¡Hacelo apretando el botón!",
+    "profile_facebook": "Facebook",
+    "profile_twitter": "Twitter",
+    "profile_instagram": "Instagram",
+    "profile_google": "Google"
 }

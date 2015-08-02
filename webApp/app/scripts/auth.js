@@ -2,6 +2,8 @@
 
 angular.module('unifyApp').config(function($authProvider, ENV) {
     $authProvider.baseUrl = ENV.apiEndPoint;
+    $authProvider.unlinkUrl = ENV.unlinkUrl;
+    $authProvider.unlinkMethod = ENV.unlinkMethod;
 
     $authProvider.facebook({
       clientId: '805638479520745',

@@ -15,5 +15,14 @@
     "logon_facebook": "Facebook",
     "logon_twitter": "Twitter",
     "logon_instagram": "Instagram",
-    "logon_google": "Google"
+    "logon_google": "Google",
+    "profile_name": "Name",
+    "profile_email": "E-mail",
+    "profile_link": "Link",
+    "profile_unlink": "Unlink",
+    "profile_notlink" : "You haven't add this account yet. Do it clicking in the button!",
+    "profile_facebook": "Facebook",
+    "profile_twitter": "Twitter",
+    "profile_instagram": "Instagram",
+    "profile_google": "Google"
 }
