@@ -16,7 +16,7 @@
 				{{'profile_email' | translate}} : 
 				{{user.email}}
 			</div>
-			<a class="btn btn-primary" ng-click="edit();">Editar</a>
+			<a class="btn btn-primary" ng-click="edit();" ng-hide="editProfile">Editar</a>
 		</div>
 		<div class="col-md-12 well" ng-hide="editProfile">
 			<div class="col-md-6">
@@ -131,10 +131,13 @@
                         <label>{{'logon_confirm_pass' | translate}}</label>
                         <input type="password" class="form-control" name="password" ng-model="newUser.confirm_password" required>
                     </div>
-	                <button type="submit" value="Submit"                                        
-	                        ng-disabled="commentForm.$invalid"
-	                        ng-click="commentForm.$setPristine()"
-	                        class="btn btn-primary btn-block">{{'logon_ingresar' | translate}}</button>
+                    <div class="form-group">
+		                <button type="submit" value="Submit"                                        
+		                        ng-disabled="commentForm.$invalid"
+		                        ng-click="commentForm.$setPristine()"
+		                        class="btn btn-primary col-md-6">Guardar</button>
+		                <a class="btn btn-danger col-md-6" ng-click="editProfile=false;">Cancelar</a>
+	                </div>
        		</form>
 		</div>
 	</div>
