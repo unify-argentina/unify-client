@@ -73,22 +73,14 @@ unifyApp.service('AuthenticationService', function ($http, $auth, $state, ENV) {
 		.then(function(response) {
 	    	localStorage.setItem('response', JSON.stringify(response));
 	    	localStorage.setItem('satellizer_token', response.data.token);
-	        console.log('You have successfully logged in: '+response.data.token); 
+	        console.log('You have successfully unlogged in: '+response.data.token); 
 	        $state.go('dashboard');
 	    })
 	    .catch(function(response) {
-	        console.log(response.data ? response.data.message : response);
+	        console.log("ERROR: "+response.data ? response.data.message : response);
 	    });
 	};
-/*
-	var req = {
-	 method: 'GET',
-	 url: 'localhost:8080/api/user/55b6c9d03c96777020ee0a7d/friends',
-	 headers: {
-	   'Authorization': 'Bearer'+ ' ' +localStorage.getItem("satellizer_token")
-	 }
-	}
-*/
+	
 	return {
 		signup : signup,
 		login : login,

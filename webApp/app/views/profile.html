@@ -7,8 +7,7 @@
       <div class="rect5"></div>
   	</div>
 	<div class="content col-md-12" ng-if="user">
-		<div class="col-md-12 well">
-
+		<div class="col-md-12 well text-center" style="margin-top: 20px;">
 			<div class="col-md-6">
 				{{'profile_name' | translate}} : 
 				{{user.name}}
@@ -17,14 +16,15 @@
 				{{'profile_email' | translate}} : 
 				{{user.email}}
 			</div>
+			<a class="btn btn-primary" ng-click="edit();">Editar</a>
 		</div>
-		<div class="col-md-12 well">
-			<div class="col-md-6" ng-if="user.facebook">
+		<div class="col-md-12 well" ng-hide="editProfile">
+			<div class="col-md-6">
 				<div class="panel panel-primary">
 			    	<div class="panel-heading">
 			        	<h3 class="panel-title">{{'profile_facebook' | translate}}</h3>
 			      	</div>
-			      	<div class="panel-body">
+			      	<div class="panel-body" ng-if="user.facebook">
 				        <div class="col-md-12">
 							<img ng-src="{{user.facebook.picture}}" class="img-circle image-profile">
 						</div>
@@ -34,14 +34,7 @@
 							<a ng-click="unlink('facebook')" class="btn btn-primary"><span class="fa fa-facebook"></span> {{'profile_unlink' | translate}}</a>
 						</div>
 			      	</div>
-			    </div>				
-			</div>
-			<div class="col-md-6" ng-if="!user.facebook">
-				<div class="panel panel-primary">
-			    	<div class="panel-heading">
-			        	<h3 class="panel-title">{{'profile_facebook' | translate}}</h3>
-			      	</div>
-			      	<div class="panel-body">
+			      	<div class="panel-body" ng-if="!user.facebook">
 						<div class="col-md-12 text-center">
 							<h3>{{'profile_notlink' | translate}}</h3>
 							<a ng-click="authenticate('facebook')" class="btn btn-primary"><span class="fa fa-facebook"></span> {{'profile_link' | translate}}</a>
@@ -49,12 +42,12 @@
 			  		</div>	
 				</div>
 			</div>
-			<div class="col-md-6" ng-if="user.twitter">
+			<div class="col-md-6" >
 				<div class="panel panel-info">
 			    	<div class="panel-heading">
 			        	<h3 class="panel-title">{{'profile_twitter' | translate}}</h3>
 			      	</div>
-			      	<div class="panel-body">
+			      	<div class="panel-body" ng-if="user.twitter">
 						<div class="col-md-12">
 							<img ng-src="{{user.twitter.picture}}" class="img-circle image-profile">
 						</div>
@@ -63,15 +56,8 @@
 							{{user.twitter.email}}
 							<a ng-click="unlink('twitter')" class="btn btn-info"><span class="fa fa-twitter"></span> {{'profile_unlink' | translate}}</a>
 						</div>
-			  		  </div>	
-				</div>
-			</div>
-			<div class="col-md-6" ng-if="!user.twitter">
-				<div class="panel panel-info">
-			    	<div class="panel-heading">
-			        	<h3 class="panel-title">{{'profile_twitter' | translate}}</h3>
-			      	</div>
-			      	<div class="panel-body">
+		  		  	</div>	
+			    	<div class="panel-body"ng-if="!user.twitter">
 						<div class="col-md-12 text-center">
 							<h3>{{'profile_notlink' | translate}}</h3>
 							<a ng-click="authenticate('twitter')" class="btn btn-info"><span class="fa fa-twitter"></span> {{'profile_link' | translate}}</a>
@@ -79,12 +65,12 @@
 			  		</div>	
 				</div>
 			</div>
-			<div class="col-md-6" ng-if="user.instagram">
+			<div class="col-md-6">
 				<div class="panel panel-primary">
 			    	<div class="panel-heading">
 			        	<h3 class="panel-title">{{'profile_instagram' | translate}}</h3>
 			      	</div>
-			      	<div class="panel-body">
+			      	<div class="panel-body" ng-if="user.instagram">
 						<div class="col-md-12">
 							<img ng-src="{{user.instagram.picture}}" class="img-circle image-profile">
 						</div>
@@ -94,14 +80,7 @@
 							<a  ng-click="unlink('instagram')" class="btn btn-primary"><i class="fa fa-instagram"></i></span> {{'profile_unlink' | translate}}</a>
 						</div>
 			  		</div>	
-				</div>
-			</div>
-			<div class="col-md-6" ng-if="!user.instagram">
-				<div class="panel panel-primary">
-			    	<div class="panel-heading">
-			        	<h3 class="panel-title">{{'profile_instagram' | translate}}</h3>
-			      	</div>
-			      	<div class="panel-body">
+			      	<div class="panel-body" ng-if="!user.instagram">
 						<div class="col-md-12 text-center">
 							<h3>{{'profile_notlink' | translate}}</h3>
 							<a  ng-click="authenticate('instagram')" class="btn btn-primary"><i class="fa fa-instagram"></i></span> {{'profile_link' | translate}}</a>
@@ -109,12 +88,12 @@
 			  		</div>	
 				</div>
 			</div>
-			<div class="col-md-6" ng-if="user.google">
+			<div class="col-md-6">
 				<div class="panel panel-danger">
 			    	<div class="panel-heading">
 			        	<h3 class="panel-title">{{'profile_google' | translate}}</h3>
 			      	</div>
-			      	<div class="panel-body">
+			      	<div class="panel-body" ng-if="user.google">
 						<div class="col-md-12">
 							<img ng-src="{{user.google.picture}}" class="img-circle image-profile">
 						</div>
@@ -124,14 +103,7 @@
 				            <a ng-click="unlink('google')" class="btn btn-danger"><i class="fa fa-google"></i></span> {{'profile_unlink' | translate}}</a>
 						</div>
 					</div>
-				</div>
-			</div>
-			<div class="col-md-6" ng-if="!user.google">
-				<div class="panel panel-danger">
-			    	<div class="panel-heading">
-			        	<h3 class="panel-title">{{'profile_google' | translate}}</h3>
-			      	</div>
-			      	<div class="panel-body">
+			      	<div class="panel-body" ng-if="!user.google">
 						<div class="col-md-12 text-center">
 							<h3>{{'profile_notlink' | translate}}</h3>
 							<a ng-click="authenticate('google')" class="btn btn-danger"><i class="fa fa-google"></i></span> {{'profile_link' | translate}}</a>
@@ -139,6 +111,31 @@
 			  		</div>	
 				</div>
 			</div>
+		</div>
+		<div class="clearfix"></div>
+		<div class="row" ng-show="editProfile">
+			<form name="profileForm" ng-submit="save()" class="col-md-6 col-md-offset-3 form-horizontal" role="form" novalidate>
+					<div class="form-group">
+                        <label>{{'logon_name' | translate}}</label>
+                        <input type="text" class="form-control" name="name" ng-model="newUser.name" required>
+                    </div>
+					<div class="form-group">
+                        <label>{{'logon_mail' | translate}}</label>
+                        <input type="email" class="form-control" name="email" ng-model="newUser.email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>{{'logon_pass' | translate}}</label>
+                        <input type="password" class="form-control" name="password" ng-model="newUser.password" required>
+                    </div>
+                    <div class="form-group">
+                        <label>{{'logon_confirm_pass' | translate}}</label>
+                        <input type="password" class="form-control" name="password" ng-model="newUser.confirm_password" required>
+                    </div>
+	                <button type="submit" value="Submit"                                        
+	                        ng-disabled="commentForm.$invalid"
+	                        ng-click="commentForm.$setPristine()"
+	                        class="btn btn-primary btn-block">{{'logon_ingresar' | translate}}</button>
+       		</form>
 		</div>
 	</div>
 </div>
