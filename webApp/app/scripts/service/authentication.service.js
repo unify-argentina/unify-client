@@ -3,6 +3,7 @@
 unifyApp.service('AuthenticationService', function ($http, $auth, $state, ENV) {
 
 	var userId;
+	var mainCircleId;
 	
     var getUserId = function() {
     	if(userId==null){
@@ -16,6 +17,18 @@ unifyApp.service('AuthenticationService', function ($http, $auth, $state, ENV) {
     	userId=value; 
     };
     
+    var getMainCircleId = function() {
+    	if(mainCircleId==null){
+    		setMainCircleId(localStorage.getItem(ENV.storageMainCircleId));
+    	}
+    	return mainCircleId; 
+	};
+
+    var setMainCircleId = function(value) { 
+    	localStorage.setItem(ENV.storageMainCircleId, value);
+    	mainCircleId=value; 
+    };
+
     var signup = function(user) {
 		console.log(user.name);
 		$auth.signup({
@@ -25,7 +38,8 @@ unifyApp.service('AuthenticationService', function ($http, $auth, $state, ENV) {
 			confirm_password: user.confirmpassword
 		}).then(function() {
 			setUserId(response.data.user._id);
-	        localStorage.setItem('response', JSON.stringify(response));
+			setMainCircleId(response.data.user.main_circle);
+			localStorage.setItem('response', JSON.stringify(response));
 	        console.log('You have successfully logged in: '+response.data.token); 
 	        $state.go('dashboard');
 	      })
@@ -40,6 +54,7 @@ unifyApp.service('AuthenticationService', function ($http, $auth, $state, ENV) {
 	      password: user.password 
 	    }).then(function() {
 			setUserId(response.data.user._id);
+			setMainCircleId(response.data.user.main_circle);
 	        localStorage.setItem('response', JSON.stringify(response));
 	        console.log('You have successfully logged in: '+response.data.token); 
 	        $state.go('dashboard');
@@ -53,6 +68,7 @@ unifyApp.service('AuthenticationService', function ($http, $auth, $state, ENV) {
 	    $auth.authenticate(provider)
 	      .then(function(response) {
 			setUserId(response.data.user._id);
+			setMainCircleId(response.data.user.main_circle);
 	        localStorage.setItem('response', JSON.stringify(response));
 	        console.log('You have successfully logged in: '+response.data.token); 
 	      })
@@ -82,11 +98,12 @@ unifyApp.service('AuthenticationService', function ($http, $auth, $state, ENV) {
 	};
 	
 	return {
-		signup : signup,
-		login : login,
-		authenticate : authenticate,
-		unlink: unlink,
-		getUserId : getUserId
+		signup 			: signup,
+		login 			: login,
+		authenticate 	: authenticate,
+		unlink			: unlink,
+		getUserId 		: getUserId,
+		getMainCircleId	: getMainCircleId
     };
 
 });

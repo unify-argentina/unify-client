@@ -23,6 +23,11 @@ angular.module('unifyApp').config(function ($stateProvider, $urlRouterProvider) 
     templateUrl: 'views/dashboard.html'
   });
 
+    $stateProvider.state('circles', {
+    url: '/circles',
+    templateUrl: 'views/circle.html'
+  });
+
   $stateProvider.state('bookTickets', {
     url: '#/bookTickets/:id',
     templateUrl: 'views/bookTickets.html'

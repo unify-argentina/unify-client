@@ -27,7 +27,6 @@ unifyApp.controller("ProfileController", function ($scope, ProfileService, Authe
 			AuthenticationService.getUserId(),
 			$scope.newUser
 		).then(function(data) {
-			console.log("Save: " + data);
 			$scope.user.name=$scope.newUser.name;
 			$scope.user.email=$scope.newUser.email;
 			$scope.editProfile=false;

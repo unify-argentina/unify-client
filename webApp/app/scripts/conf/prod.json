@@ -1,7 +1,8 @@
 {
-	"apiEndPoint"	:	"api-unify.herokuapp.com",
-	"name"			:	"production",
-    "storageUserId"	:	"unifyUserId",
-    "unlinkMethod"	:	"delete",
-	"unlinkUrl"		:	"/auth/"
+	"apiEndPoint"			:	"api-unify.herokuapp.com",
+	"name"					:	"production",
+    "storageUserId"			:	"unifyUserId",
+    "storageMainCircleId"	:	"unifyMainCircleId",
+    "unlinkMethod"			:	"delete",
+	"unlinkUrl"				:	"/auth/"
 }
