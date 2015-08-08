@@ -522,7 +522,7 @@ module.exports = function (grunt) {
     'cssmin:dist',
     'uglify:dist',
     'usemin',
-    'htmlmin:dist',
+    //'htmlmin:dist',
     'clean:postTemp',
     'copy:dist',
     'clean:postDist'
