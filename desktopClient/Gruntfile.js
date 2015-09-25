@@ -583,7 +583,7 @@ module.exports = function (grunt) {
       },
       finalWindowsApp: {
         options: {
-          archive: '<%= config.distWin %>/myFirstNwApp.zip'
+          archive: '<%= config.distWin %>/Unify.zip'
         },
         files: [{
           expand: true,
@@ -596,13 +596,13 @@ module.exports = function (grunt) {
       macApp32: {
         files: [{
           src: '<%= config.distMac32 %>/node-webkit.app',
-          dest: '<%= config.distMac32 %>/myFirstNwApp.app'
+          dest: '<%= config.distMac32 %>/Unify.app'
         }]
       },
       macApp64: {
         files: [{
           src: '<%= config.distMac64 %>/node-webkit.app',
-          dest: '<%= config.distMac64 %>/myFirstNwApp.app'
+          dest: '<%= config.distMac64 %>/Unify.app'
         }]
       },
       zipToApp: {
@@ -684,7 +684,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('chmod32', 'Add lost Permissions.', function () {
     var fs = require('fs'),
-      path = config.distMac32 + '/myFirstNwApp.app/Contents/';
+      path = config.distMac32 + '/Unify.app/Contents/';
     if (fs.existsSync(path + 'Frameworks/node-webkit Helper EH.app/Contents/MacOS/node-webkit Helper EH')) {
       fs.chmodSync(path + 'Frameworks/node-webkit Helper EH.app/Contents/MacOS/node-webkit Helper EH', '555');
     } else {
@@ -709,7 +709,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('chmod64', 'Add lost Permissions.', function () {
     var fs = require('fs'),
-      path = config.distMac64 + '/myFirstNwApp.app/Contents/';
+      path = config.distMac64 + '/Unify.app/Contents/';
     if (fs.existsSync(path + 'Frameworks/node-webkit Helper EH.app/Contents/MacOS/node-webkit Helper EH')) {
       fs.chmodSync(path + 'Frameworks/node-webkit Helper EH.app/Contents/MacOS/node-webkit Helper EH', '555');
     } else {
@@ -760,7 +760,7 @@ module.exports = function (grunt) {
     concat([
       'buildTmp/nw.exe',
       'buildTmp/app.nw'
-    ], 'buildTmp/myFirstNwApp.exe', function () {
+    ], 'buildTmp/Unify.exe', function () {
       var fs = require('fs');
       fs.unlink('buildTmp/app.nw', function (error, stdout, stderr) {
         if (stdout) {
@@ -949,7 +949,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('dmg', 'Create dmg from previously created app folder in dist.', function () {
     var done = this.async();
-    var createDmgCommand = 'resources/mac/package.sh "myFirstNwApp"';
+    var createDmgCommand = 'resources/mac/package.sh "Unify"';
     require('child_process').exec(createDmgCommand, function (error, stdout, stderr) {
       var result = true;
       if (stdout) {

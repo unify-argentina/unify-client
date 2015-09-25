@@ -1,8 +1,0 @@
-{
-	"apiEndPoint"			:	"http://localhost:8080",
-	"name"					:	"development",
-    "storageUserId"			:	"unifyUserId",
-    "storageMainCircleId"	:	"unifyMainCircleId",
-    "unlinkMethod"			:	"delete",
-	"unlinkUrl"				:	"/auth/"
-}
