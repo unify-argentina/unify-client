@@ -1,13 +1,12 @@
 {
-  "name": "clienteUnify",
+  "name": "Unify",
   "main": "index.html",
   "version": "0.0.1",
   "single-instance": true,
   "window": {
-    "title": "clienteUnify",
+    "title": "Unify",
     "maximize": true,
-    "transparent": true,
-    "toolbar": true
+    "toolbar": false
   },
   "chromium-args": "--child-clean-exit"
 }
