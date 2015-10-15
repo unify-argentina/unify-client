@@ -6,6 +6,7 @@
   "window": {
     "title": "Unify",
     "maximize": true,
+    "icon": "resources/icon.png",
     "toolbar": false
   },
   "chromium-args": "--child-clean-exit"
