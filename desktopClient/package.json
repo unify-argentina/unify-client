@@ -2,7 +2,9 @@
   "name": "clienteUnify",
   "private": true,
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "nwjs-osx-menu": "0.0.4"
+  },
   "repository": {},
   "devDependencies": {
     "concat-files": "~0.1.0",
