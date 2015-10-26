@@ -823,9 +823,7 @@ module.exports = function (grunt) {
     var metadata = grunt.file.readJSON('.yo-rc.json');
     var resourcesPath = config.resources;
     var nwExecuteable = 'nwjs';
-    //if (metadata.nodeWebkitVersion.indexOf('v0.8.') === 0 || metadata.nodeWebkitVersion.indexOf('v0.9.') === 0 || metadata.nodeWebkitVersion.indexOf('v0.10.') === 0 || metadata.nodeWebkitVersion.indexOf('v0.11.') === 0) {
-      //nwExecuteable = 'node-webkit';
-    //}
+  
     var infoPlistTmp = grunt.file.read(resourcesPath + '/mac/Info.plist.tmp', {
       encoding: 'UTF8'
     });
